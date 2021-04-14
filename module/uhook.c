@@ -90,11 +90,11 @@ static ssize_t uhook_read(struct file *file, char __user *buf,
 
 
 
-static ssize_t uhook_aio_write(struct kiocb *iocb, const struct iovec *iov,
-			 unsigned long nr_segs, loff_t ppos)
-{
-	return 0;
-}
+/*static ssize_t uhook_aio_write(struct kiocb *iocb, const struct iovec *iov,*/
+/*             unsigned long nr_segs, loff_t ppos)*/
+/*{*/
+/*    return 0;*/
+/*}*/
 
 
 
@@ -286,7 +286,8 @@ static long uhook_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 static const struct file_operations uhook_fops = {
 	.owner = THIS_MODULE,
 	.read = uhook_read,
-	.aio_write = uhook_aio_write,
+/*    .aio_write = uhook_aio_write,*/
+/*    .write = uhook_aio_write,*/
 	.unlocked_ioctl = uhook_ioctl,
 	.compat_ioctl = uhook_ioctl,
 	.open = uhook_open,
